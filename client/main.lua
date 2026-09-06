@@ -715,27 +715,24 @@ MotelOwner = function(data)
 end
 
 MotelRentalPoints = function(data)
-    local point = lib.points.new(data.rentcoord, 5, data)
+    local point = lib.points.new({
+        coords = data.rentcoord,
+        distance = 1.5,
+        motelData = data
+    })
 
     function point:onEnter() 
 		lib.showTextUI('[E] - Motel Rent', {
-			position = "top-center",
 			icon = 'hotel',
-			style = {
-				borderRadius = 0,
-				backgroundColor = '#48BB78',
-				color = 'white'
-			}
 		})
 	end
 
-    function point:onExit() 
+    function point:onExit()
 		lib.hideTextUI()
 	end
 
     function point:nearby()
-        DrawMarker(2, self.coords.x, self.coords.y, self.coords.z, 0.0, 0.0,0.0, 0.0, 180.0, 0.0, 0.7, 0.7, 0.7, 225, 225, 211, 50, false,true, 2, nil, nil, false)
-        if self.currentDistance < 1 and IsControlJustReleased(0, 38) then
+        if self.currentDistance < 1.5 and IsControlJustReleased(0, 38) then
             MotelRentalMenu(data)
         end
     end
