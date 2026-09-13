@@ -29,6 +29,6 @@ files {
 	'data/script.js',
 	'data/audio/door.mp4',
 	'data/audio/door.ogg',
-	'stream/starter_shells_k4mb1.ytyp'
+	'stream_enhanced/starter_shells_k4mb1.ytyp'
 }
 data_file 'DLC_ITYP_REQUEST' 'starter_shells_k4mb1.ytyp'
